@@ -16,6 +16,5 @@ class ProductPage(BasePage):
         assert price and name and message_name and message_price, "Not all elements are presented"
 
         print(name.text, message_name.text)
-        assert name.text in message_name.text, "Product names do not match"
-
+        assert name.text == message_name.text, "Product names do not match"
         assert price.text == message_price.text, "Product prices do not match"
