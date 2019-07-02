@@ -18,3 +18,11 @@ class ProductPage(BasePage):
         print(name.text, message_name.text)
         assert name.text == message_name.text, "Product names do not match"
         assert price.text == message_price.text, "Product prices do not match"
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+    def should_success_message_disappear(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message should disappear, but remains on page"
